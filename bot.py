@@ -23,4 +23,4 @@ for filename in os.listdir('./cogs'):
     if filename.endswith('.py'):
         entryBot.load_extension(f'cogs.{filename[:-3]}')
 
-entryBot.run(token)
+entryBot.run(os.environ['Token'])
