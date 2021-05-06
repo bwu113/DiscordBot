@@ -14,6 +14,5 @@ class Deece(commands.Cog):
             'deace' in message.content.lower():
             await message.channel.send('Nuts!')
 
-
 def setup(client):
     client.add_cog(Deece(client))
