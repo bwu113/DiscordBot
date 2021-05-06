@@ -7,7 +7,7 @@ class Deece(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, message):
-        if 'deece'.lower() in message.content:
+        if 'deece'.lower() in message.content or 'deace'.lower() in message.content:
             await message.channel.send('Nuts!')
 
 
