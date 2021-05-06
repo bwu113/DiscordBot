@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d2317af-d6a5-433b-b513-463eee847baa" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cogs/Organize.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/Organize.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
