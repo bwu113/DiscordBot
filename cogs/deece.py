@@ -7,11 +7,11 @@ class Deece(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, message):
-        if 'deece'.lower() in message.content or \
-            'deace'.lower() in message.content or \
-            'deez'.lower() in message.content or \
-            'deese'.lower() in message.content or \
-            'deace'.lower() in message.content:
+        if 'deece' in message.content.lower() or \
+            'deace' in message.content.lower() or \
+            'deez' in message.content.lower() or \
+            'deese' in message.content.lower() or \
+            'deace' in message.content.lower():
             await message.channel.send('Nuts!')
 
 
