@@ -6,9 +6,13 @@ class Organize(commands.Cog):
         self.client = client
 
     @commands.command()
-    async def channel(self, ctx, channel_name):
+    async def createchannel(self, ctx, channel_name):
         await ctx.guild.create_text_channel(channel_name)
         await ctx.send(f'A new text channel called {channel_name} was created.')
+
+    async def removechannel(self, ctx, channel: discord.channel_name):
+        await channel.delete()
+        await ctx.send(f'Channel {channel} was removed.')
 
 def setup(client):
     client.add_cog(Organize(client))
