@@ -1,4 +1,5 @@
 import discord
+import os
 from discord.ext import commands
 
 #Character used before a command
@@ -10,15 +11,16 @@ def read_token():
         return lines[0].strip()
 token = read_token()
 
-@entryBot.event
-async def on_ready():
-    print('Bot is ready.')
+@entryBot.command()
+async def load(ctx, extension):
+    entryBot.load_extension(f'cogs.{extension}')
 
-@entryBot.event
-async def on_voice_state_update(member, before, after):
-    channel = after.channel
-    if after.channel.id is not None and member.id == 180933850476707840:
-        await channel.connect()
-        await member.guild.voice_client.play(discord.FFmpegPCMAudio('sound.mp3',executable="D:/Discord Bot/ffmpeg/bin/ffmpeg.exe"),after=await member.guild.voice_client.disconnect())
+@entryBot.command()
+async def unload(ctx, extension):
+    entryBot.unload_extension(f'cogs.{extension}')
+
+for filename in os.listdir('./cogs'):
+    if filename.endswith('.py'):
+        entryBot.load_extension(f'cogs.{filename[:-3]}')
 
 entryBot.run(token)
