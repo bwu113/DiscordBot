@@ -18,8 +18,8 @@ class FF14(commands.Cog):
             response = requests.get(f'https://xivapi.com/search?string={itemName}')
             result = json.loads(response.text)
         except:
-            return await ctx.send(
-                "No results are found for " + itemName + ", Are you sure you spelled the name correctly?")
+            await ctx.send("No results are found for " + itemName + ", Are you sure you spelled the name correctly?")
+            return
 
         itemID = ""
         itemIcon = ""
