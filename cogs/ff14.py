@@ -17,7 +17,7 @@ class FF14(commands.Cog):
         itemIcon = ''
         for info in result['Results']:
             if info['Name'].lower() != itemName.lower():
-                return ctx.send("No results are found for \ " + itemName + "\, Are you sure you spelled the name correctly?")
+                return await ctx.send("No results are found for \ " + itemName + "\, Are you sure you spelled the name correctly?")
             itemID = info['ID']
             itemIcon = info['Icon']
 
