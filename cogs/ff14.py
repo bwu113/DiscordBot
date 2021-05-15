@@ -13,13 +13,16 @@ class FF14(commands.Cog):
         worldList = ['Adamantoise', 'Cactuar', 'Faerie', 'Gilgamesh', 'Jenova', 'Midgardsormr', 'Sargatanas', 'Siren']
         response = requests.get(f'https://xivapi.com/search?string={itemName}')
         result = json.loads(response.text)
+
+        if result == "":
+            return await ctx.send("No results are found for \ " + itemName + "\, Are you sure you spelled the name correctly?")
+
         itemID = ''
         itemIcon = ''
         for info in result['Results']:
-            if info['Name'].lower() != itemName.lower():
-                return await ctx.send("No results are found for \ " + itemName + "\, Are you sure you spelled the name correctly?")
-            itemID = info['ID']
-            itemIcon = info['Icon']
+            if info['Name'].lower() == itemName.lower():
+                itemID = info['ID']
+                itemIcon = info['Icon']
 
         for world in worldList:
             response = requests.get(f'https://universalis.app/api/{world}/{itemID}')
